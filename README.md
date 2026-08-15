@@ -54,7 +54,8 @@ Gen Paletto is a free, browser-based toolkit for designers and developers to gen
     └── ui.js
 ├── assets/
 │   └── nature.webp               #image
-                  # Shared UI helpers (mobile nav, toasts)
+
+# Shared UI helpers (mobile nav, toasts)
 ```
  
 ## How Saved Palettes Work
@@ -96,4 +97,4 @@ Designed & developed by **Hania**.
  
 ## License
  
-© 2026 Gen Paletto. All rights reserved. *(Update this section with your preferred license — e.g. MIT — if you plan to open source it.)*
+© 2026 Gen Paletto. All rights reserved.
