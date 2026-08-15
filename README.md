@@ -51,7 +51,10 @@ Gen Paletto is a free, browser-based toolkit for designers and developers to gen
     ├── imagepicker.js             # Image color extraction logic
     ├── contrastchecker.js         # Contrast ratio / WCAG logic
     ├── savedpalettes.js           # Saved palettes CRUD + export
-    └── ui.js                      # Shared UI helpers (mobile nav, toasts)
+    └── ui.js
+├── assets/
+│   └── nature.webp               #image
+                  # Shared UI helpers (mobile nav, toasts)
 ```
  
 ## How Saved Palettes Work
