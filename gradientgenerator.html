@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Generate stunning color palettes, smooth gradients, and professional design systems." />
+    <meta name="author" content="GenPaletto" />
+    <title>Gen Paletto </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+</head>
+
+<body>
+
+    <div class="aurora">
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+        <span class="blob blob3"></span>
+        <span class="grid-overlay"></span>
+
+    </div>
+    <!-- HEADER -->
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Gen Paletto</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Tools <span class="arrow">▾</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                        <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                        <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                        <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                        <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                    </ul>
+                </li>
+                <li><a href="savedpalettes.html">Saved Palettes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="main">
+
+        <section class="hero">
+            <div class="section-heading">
+            </div>
+            <div class="section-heading">
+                <h2>Blend Colors into a <span class="gradient-text">Living Gradient</span></h2>
+                <p>Pick two or three colors and watch the gradient update instantly — then copy the exact CSS.</p>
+
+            </div>
+
+        </section>
+
+        <div class="workspace">
+            <!-- CONTROLS -->
+            <div class="panel">
+                <h2>Colors</h2>
+                <p class="hint">Choose how many colors to blend</p>
+
+                <div class="stop-count">
+                    <button data-count="2" id="count2">2 Colors</button>
+                    <button data-count="3" id="count3" class="active">3 Colors</button>
+                </div>
+
+                <div id="colorRows"></div>
+
+                <div class="field">
+                    <label><span>Angle</span><span id="angleVal">135°</span></label>
+                    <input type="range" id="angle" min="0" max="360" value="135">
+                </div>
+
+                <div class="type-toggle">
+                    <button data-type="linear" class="active" id="typeLinear">Linear</button>
+                    <button data-type="radial" id="typeRadial">Radial</button>
+                </div>
+
+                <div class="direction-grid" id="directionGrid">
+
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-ghost" id="randomizeBtn">🎲 Random</button>
+                    <button class="btn btn-primary" id="copyMainBtn">Copy CSS</button>
+                </div>
+            </div>
+
+            <!-- PREVIEW -->
+            <div class="preview-stack">
+                <div class="preview-box" id="previewBox">
+                    <span class="tag" id="previewTag">linear-gradient · 135°</span>
+                </div>
+
+                <div class="swatch-strip" id="swatchStrip"></div>
+
+                <div class="code-card">
+                    <div class="code-head">
+                        <span>CSS</span>
+                        <button id="copyBtn">Copy</button>
+                    </div>
+                    <pre id="cssOutput"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Logo -->
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        Gen Paletto
+                    </a>
+                    <p>
+                        Create beautiful color palettes, gradients,
+                        and modern color systems for designers
+                        and developers.
+                    </p>
+                </div>
+                <!-- Explore -->
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                        <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                        <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                        <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                        <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Gen Paletto. Built for designers.
+                </p>
+                <p>
+                    Designed & Developed by
+                    <span>Hania</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/gradient.js"></script>
+    <script src="js/ui.js"></script>
+
+</body>
+
+</html>

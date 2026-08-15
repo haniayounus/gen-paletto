@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Generate stunning color palettes, smooth gradients, and professional design systems." />
+    <meta name="author" content="GenPaletto" />
+    <title>Gen Paletto </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link href="//cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="aurora">
+
+        <span class="blob blob1"></span>
+        <span class="blob blob2"></span>
+        <span class="blob blob3"></span>
+        <span class="grid-overlay"></span>
+
+    </div>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Gen Paletto</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Tools <span class="arrow">▾</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                        <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                        <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                        <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                        <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                    </ul>
+                </li>
+                <li><a href="savedpalettes.html">Saved Palettes</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero hero-generate--palette">
+        <div class="section-heading">
+        </div>
+        <div class="section-heading">
+            <h2>Generate <span class="gradient-text">Random Palettes</span> Instantly</h2>
+            <p>Create random, shaded, and complementary color palettes with a single click.</p>
+        </div>
+
+    </section>
+
+    <section id="section-random">
+        <div class="container-random">
+            <div class="controls">
+                <button class="generate-btn primary-btn nav-btn" onclick="renderPalette('random')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5" />
+
+                    </svg>
+                    Random
+                </button>
+                <div class="download-save-container">
+                    <button class="export-palette-btn" data-type="random" title="Export this palette">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+
+                    </button>
+                    <button class="save-palette-btn">
+                        <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="box-container">
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section-shades">
+        <!-- SECTION 2: SHADES PALETTE -->
+        <div class="container-random">
+            <div class="controls">
+
+                <button class="generate-btn primary-btn nav-btn" onclick="renderPalette('shades')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5" />
+
+                    </svg>
+                    Shades
+                </button>
+                <div class="download-save-container">
+                    <button class="export-palette-btn" data-type="shades" title="Export this palette">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+
+                    </button>
+                    <button class="save-palette-btn">
+                        <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="box-container">
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="section-matching">
+        <!-- SECTION 3: COMPLEMENTARY PALETTE -->
+        <div class="container-random">
+            <div class="controls">
+                <button class="generate-btn primary-btn nav-btn" onclick="renderPalette('matching')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5" />
+
+                    </svg>
+                    Complementary
+                </button>
+                <div class="download-save-container">
+                    <button class="export-palette-btn" data-type="matching" title="Export this palette">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+
+                    </button>
+                    <button class="save-palette-btn">
+                        <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="box-container">
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+                <div class="color-card">
+                    <div class="color-preview"></div>
+                    <div class="color-details"><span class="color-value"></span><button class="copy-btn"><svg
+                                xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                            </svg>
+                        </button></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPORT MODAL -->
+    <div id="exportModalOverlay" class="modal-overlay">
+        <div class="modal-box export-modal-box">
+
+            <button id="exportModalCloseBtn" class="modal-close-btn"><svg xmlns="http://w3.org" viewBox="0 0 24 24"
+                    width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg></button>
+
+            <h3 class="export-modal-title">Export Palette</h3>
+
+            <div class="export-tabs">
+                <button class="export-tab-btn active" data-tab="css">CSS</button>
+                <button class="export-tab-btn" data-tab="json">JSON</button>
+            </div>
+
+            <pre id="exportCodeBlock" class="export-code-block"></pre>
+
+            <div class="export-actions">
+                <button id="copyExportBtn" class="generate-btn primary-btn nav-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                    </svg>
+                    Copy
+                </button>
+
+                <button id="downloadExportBtn" class="generate-btn primary-btn nav-btn">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+
+                    Download
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <!-- FOOTER -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Logo -->
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        Gen Paletto
+                    </a>
+                    <p>
+                        Create beautiful color palettes, gradients,
+                        and modern color systems for designers
+                        and developers.
+                    </p>
+                </div>
+
+                <!-- Explore -->
+                <div class="footer-column">
+                    <h4>Explore</h4>
+
+                    <ul>
+
+                        <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                        <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                        <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                        <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                        <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+
+                <div class="footer-column">
+
+                    <h4>Legal</h4>
+
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 Gen Paletto. Built for designers.
+                </p>
+                <p>
+                    Designed & Developed by
+                    <span>Hania</span>
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/random.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+
+</html>

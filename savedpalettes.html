@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View and manage your saved color palettes." />
+    <meta name="author" content="GenPaletto" />
+    <title>Gen Paletto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+  
+</head>
+<body>
+
+<div class="aurora">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+    <span class="grid-overlay"></span>
+</div>
+
+<header class="navbar">
+    <a href="index.html" class="logo">Gen Paletto</a>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Tools <span class="arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                    <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                    <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                    <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                       <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                </ul>
+            </li>
+          
+        </ul>
+    </nav>
+</header>
+
+<section class="hero hero-generate--palette">
+    <div class="section-heading">
+        <span>YOUR COLLECTION</span>
+    </div>
+    <div class="section-heading">
+        <h2>Your <span class="gradient-text">Saved Palettes</span></h2>
+        <p>All the palettes you've saved, stored right in your browser.</p>
+    </div>
+</section>
+
+<section class="saved-palettes-section">
+    <div class="container">
+
+        <div id="savedPalettesEmpty" class="empty-state">
+            <div class="empty-icon">
+            <svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="3" y="3" width="8" height="8" rx="1" />
+  <rect x="13" y="3" width="8" height="8" rx="1" />
+  <rect x="3" y="13" width="8" height="8" rx="1" />
+  <rect x="13" y="13" width="8" height="8" rx="1" />
+</svg>
+
+            </div>
+            <h3>No Saved Palettes Yet</h3>
+            <p>Go generate a palette and click the heart icon to save it here.</p>
+        </div>
+
+        <div id="savedPalettesContainer" class="saved-palettes-grid"></div>
+
+    </div>
+</section>
+
+<!-- PALETTE MODAL -->
+<div id="paletteModalOverlay" class="modal-overlay">
+    <div class="modal-box">
+
+        <button id="modalCloseBtn" class="modal-close-btn"><svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg>
+</button>
+
+        <div class="modal-header">
+
+            <input
+                type="text"
+                id="modalTitleInput"
+                class="modal-title-input"
+                readonly>
+
+            <button id="modalEditNameBtn" class="modal-edit-btn" title="Edit name">
+<svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M12 20h9" />
+  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+</svg>
+            </button>
+              <button id="modalExportBtn" class="modal-edit-btn" title="Export palette">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+    </button>
+
+        </div>
+
+        <div id="modalSwatchRow" class="modal-swatch-row"></div>
+
+    </div>
+</div>
+<!-- EXPORT MODAL -->
+<div id="exportModalOverlay" class="modal-overlay">
+    <div class="modal-box export-modal-box">
+
+        <button id="exportModalCloseBtn" class="modal-close-btn"><svg xmlns="http://w3.org" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="18" y1="6" x2="6" y2="18" />
+  <line x1="6" y1="6" x2="18" y2="18" />
+</svg></button>
+
+        <h3 class="export-modal-title">Export Palette</h3>
+
+        <div class="export-tabs">
+            <button class="export-tab-btn active" data-tab="css">CSS</button>
+            <button class="export-tab-btn" data-tab="json">JSON</button>
+        </div>
+
+        <pre id="exportCodeBlock" class="export-code-block"></pre>
+
+        <div class="export-actions">
+            <button id="copyExportBtn" class="generate-btn primary-btn nav-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                        <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                    </svg>
+                Copy
+            </button>
+
+            <button id="downloadExportBtn" class="generate-btn primary-btn nav-btn">
+        
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+
+                Download
+            </button>
+        </div>
+
+    </div>
+</div>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="logo">Gen Paletto</a>
+                <p>Create beautiful color palettes, gradients, and modern color systems for designers and developers.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                    <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                    <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                    <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                        <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Gen Paletto. Built for designers.</p>
+            <p>Designed & Developed by <span>Hania</span></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/savedpalettes.js"></script>
+ <script src="js/ui.js"></script>
+</body>
+</html>

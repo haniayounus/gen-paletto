@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check color contrast ratios against WCAG AA/AAA accessibility standards." />
+    <meta name="author" content="GenPaletto" />
+    <title>Gen Paletto</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link href="//cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="aurora">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+    <span class="grid-overlay"></span>
+</div>
+
+<header class="navbar">
+    <a href="index.html" class="logo">Gen Paletto</a>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">Tools <span class="arrow">▾</span></a>
+                <ul class="dropdown-menu">
+                    <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                    <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                    <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                    <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                    <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                </ul>
+            </li>
+            <li><a href="savedpalettes.html">Saved Palettes</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero hero-generate--palette">
+    <div class="section-heading">
+        <span>ACCESSIBILITY</span>
+    </div>
+    <div class="section-heading">
+        <h2>Check Color <span class="gradient-text">Contrast</span> Instantly</h2>
+        <p>Pick a foreground and background color to see the contrast ratio and WCAG pass/fail results.</p>
+    </div>
+</section>
+
+<section id="contrast-checker" class="generator">
+    <div class="container">
+
+        <div class="generator-box contrast-inputs">
+
+            <div class="input-group">
+                <label>Foreground (Text) Color</label>
+                <div class="color-input">
+                    <input type="color" id="fgColorPicker" value="#111827">
+                    <input type="text" id="fgHexInput" value="#111827">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Background Color</label>
+                <div class="color-input">
+                    <input type="color" id="bgColorPicker" value="#FFFFFF">
+                    <input type="text" id="bgHexInput" value="#FFFFFF">
+                </div>
+            </div>
+
+            <button id="swapColorsBtn" class="generate-btn primary-btn nav-btn" title="Swap colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 4v12m0 0l4-4m-4 4l-4-4"/>
+                </svg>
+                Swap
+            </button>
+        </div>
+
+        <!-- LIVE PREVIEW -->
+        <div id="contrastPreview" class="contrast-preview">
+
+            <p class="contrast-preview-large">Large Text Example (24px+)</p>
+            <p class="contrast-preview-normal">Normal text example, roughly 16px, used for body copy and everyday reading.</p>
+
+        </div>
+
+        <!-- RESULTS -->
+        <div class="contrast-results">
+
+            <div class="contrast-ratio-card">
+
+                <span class="contrast-ratio-label">Contrast Ratio</span>
+                <span id="contrastRatioValue" class="contrast-ratio-value">21.00:1</span>
+
+            </div>
+
+            <div class="contrast-checks">
+
+                <div class="contrast-check-row">
+                    <span class="contrast-check-title">Normal Text</span>
+
+                    <div class="contrast-check-pills">
+                        <span id="normalAA" class="pill pill-pass">AA Pass</span>
+                        <span id="normalAAA" class="pill pill-pass">AAA Pass</span>
+                    </div>
+                </div>
+
+                <div class="contrast-check-row">
+                    <span class="contrast-check-title">Large Text</span>
+
+                    <div class="contrast-check-pills">
+                        <span id="largeAA" class="pill pill-pass">AA Pass</span>
+                        <span id="largeAAA" class="pill pill-pass">AAA Pass</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <a href="#" class="logo">Gen Paletto</a>
+                <p>Create beautiful color palettes, gradients, and modern color systems for designers and developers.</p>
+            </div>
+            <div class="footer-column">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a target="_blank" href="randompalettegenerator.html">Generate Random Palette</a></li>
+                    <li><a target="_blank" href="palettegenerator.html">Generate Palette</a></li>
+                    <li><a target="_blank" href="gradientgenerator.html">Gradient Generator</a></li>
+                    <li><a target="_blank" href="imagepicker.html">Extract Palette from Image</a></li>
+                    <li><a target="_blank" href="contrastchecker.html">Contrast Checker</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Gen Paletto. Built for designers.</p>
+            <p>Designed & Developed by <span>Hania</span></p>
+        </div>
+    </div>
+</footer>
+
+<script src="js/contrastchecker.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>
