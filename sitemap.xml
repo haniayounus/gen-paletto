@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/randompalettegenerator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/palettegenerator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/gradientgenerator.html</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/imagepicker.html</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/contrastchecker.html</loc>
+  </url>
+
+  <url>
+    <loc>https://gen-paletto.vercel.app/savedpalettes.html</loc>
+  </url>
+
+</urlset>
